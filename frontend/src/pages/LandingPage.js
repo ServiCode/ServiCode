@@ -16,7 +16,7 @@ import pagina2 from '../assets/img/Pagina2.png';
 import pagina3 from '../assets/img/Pagina3.png';
 import pagina4 from '../assets/img/Pagina4.png';
 import mantenimiento from '../assets/img/mantenimiento5.jpeg';
-import ceo from '../assets/img/ceo1.jpeg';
+import ceo from '../assets/img/ceo1.jpeg';  
 import landing from '../assets/img/landing.jpg';
 
 const LandingPage = () => {

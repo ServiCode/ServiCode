@@ -4,7 +4,7 @@ import 'react-whatsapp-widget/dist/index.css';
 import logo from '../assets/img/logo3.png';
 
 const WhatsAppButton = () => {
-  // Componente personalizado que usa la imagen como fondo
+  // Componente personalizado con imagen más grande
   const CompanyLogoComponent = () => (
     <div
       style={{
@@ -13,7 +13,9 @@ const WhatsAppButton = () => {
         backgroundImage: `url(${logo})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        transform: 'scale(3)', // Hacer la imagen 1.5 veces más grande
+        transformOrigin: 'center',
       }}
     />
   );
@@ -41,6 +43,14 @@ const WhatsAppButton = () => {
                   ¿En qué podemos ayudarte hoy? Si necesitas más información, no dudes en escribirnos. Te responderemos lo antes posible ⏳.
 
                   ¡Gracias por confiar en ServiCode, tecnología a tu alcance! ⚙️✨"
+        // Estilos personalizados para agrandar elementos
+        styles={{
+          headerAvatar: {
+            width: '50px',  // Aumentar ancho
+            height: '50px', // Aumentar altura
+            margin: '0 10px',
+          }
+        }}
       />
     </div>
   );
