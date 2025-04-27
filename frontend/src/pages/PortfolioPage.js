@@ -61,14 +61,10 @@ const PortfolioPage = () => {
       <Navbar />
       <div className="main-container">
         <WhatsAppWidget phoneNumber="+57320023808" message="¿En qué podemos ayudarte?" />
-        
-        {/* Header */}
         <header className="page-header">
           <h1>Nuestro Portafolio</h1>
           <p>Proyectos destacados que reflejan nuestra experiencia y capacidad</p>
         </header>
-        
-        {/* Filtros de Portafolio */}
         <section className="portfolio-gallery-section">
           <div className="portfolio-filter">
             <button 
@@ -96,8 +92,6 @@ const PortfolioPage = () => {
               Soporte
             </button>
           </div>
-          
-          {/* Galería de Proyectos */}
           <div className="portfolio-grid">
             {filteredProjects.map((project, index) => (
               <div key={project.id} className="portfolio-project">

@@ -33,9 +33,8 @@ const ServiciosPage = () => {
               <ul>
                 <li>Diseño responsive</li>
                 <li>HTML5, CSS3, JavaScript</li>
-                <li>PHP, Python, Java, Node.js</li>
-                <li>React, Angular, Vue</li>
-                <li>WordPress, Shopify</li>
+                <li>PHP, Python</li>
+                <li>React, Java, Node.js</li>
               </ul>
             </div>
           </div>
