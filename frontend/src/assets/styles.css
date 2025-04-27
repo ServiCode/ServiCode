@@ -1060,3 +1060,12 @@ img[loading="lazy"].loaded {
   box-shadow: 0 5px 25px rgba(0,0,0,0.2) !important;
   border-radius: 12px !important;
 }
+
+/* Estilo para la sección CTA con texto en blanco */
+.cta-section h2 {
+  color: var(--blanco) !important;
+}
+
+.cta-section p {
+  color: var(--blanco) !important;
+}
