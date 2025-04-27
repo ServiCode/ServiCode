@@ -858,3 +858,30 @@ img[loading="lazy"].loaded {
   justify-content: center;
   align-items: center;
 }
+
+/* Estilos para asegurar que el widget de WhatsApp esté siempre por encima */
+.rcw-widget-container {
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+.rcw-conversation-container {
+  z-index: 9999 !important;
+}
+
+.rcw-launcher {
+  z-index: 9999 !important;
+}
+
+.rcw-open-launcher {
+  z-index: 10000 !important;
+}
+
+.rcw-close-launcher {
+  z-index: 10000 !important;
+}
+
+/* Asegurar que el chat abierto también esté por encima */
+.rcw-messages-container {
+  z-index: 10000 !important;
+}
