@@ -185,25 +185,66 @@ section h2::after {
 
 /* Elementos de portafolio */
 .portfolio-item {
-  cursor: pointer;
-  border-radius: 0.5rem;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* Proporción 3:2 */
+  position: relative;
   overflow: hidden;
-  box-shadow: var(--sombra-suave);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0.75rem;
-  height: 350px;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--sombra-media);
+  border-radius: 8px;
+  margin: 0 auto;
 }
 
 .portfolio-item img {
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   object-fit: cover;
-  display: block;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para la página de portafolio */
+.portfolio-project {
+  margin-bottom: 2rem;
+}
+
+.portfolio-project .project-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* Proporción 3:2 */
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.portfolio-project .project-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Estilos para las imágenes de servicios */
+.service-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* Estilos para las imágenes de testimonios */
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Tarjetas de testimonios */
@@ -236,14 +277,6 @@ section h2::after {
   grid-template-columns: 80px 1fr;
   gap: 1.5rem;
   align-items: center;
-}
-
-.testimonial-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--blanco);
 }
 
 .testimonial-card blockquote {
@@ -617,64 +650,122 @@ img[loading="lazy"].loaded {
   }
 }
 
-/* Mejoras para el slider ampliado */
+/* Mejoras para el slider de portafolio */
 .portfolio-section {
-  padding-top: 4rem;
-  margin-top: 0;
+  margin-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.portfolio-section .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
 }
 
 .portfolio-item {
-  cursor: pointer;
-  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--sombra-suave);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0.75rem;
-  height: 350px;
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16/9;
+  background: #f8f8f8;
 }
 
 .portfolio-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
-/* Ajustes para el slider */
-.slick-slide {
-  padding: 10px;
+/* Contenedor del slider */
+.portfolio-section .slick-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.slick-list {
-  margin: 0 -10px;
+.portfolio-section .slick-list {
+  width: 100%;
 }
 
-.slick-arrow {
-  z-index: 10;
+.portfolio-section .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+/* Mejoras adicionales para asegurar centrado */
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Navegación del slider */
+.portfolio-section .slick-prev,
+.portfolio-section .slick-next {
   width: 40px;
   height: 40px;
-  background-color: var(--azul-primario) !important;
+  background: var(--azul-primario);
   border-radius: 50%;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  z-index: 10;
 }
 
-.slick-arrow:hover {
-  opacity: 1;
-  background-color: var(--cian) !important;
+.portfolio-section .slick-prev {
+  left: -10px;
 }
 
-.slick-arrow:before {
+.portfolio-section .slick-next {
+  right: -10px;
+}
+
+.portfolio-section .slick-prev:before,
+.portfolio-section .slick-next:before {
   font-size: 20px;
-  color: var(--blanco);
+  opacity: 1;
 }
 
-.slick-prev {
-  left: 25px;
+.portfolio-section .slick-prev:hover,
+.portfolio-section .slick-next:hover {
+  background: var(--azul-secundario);
 }
 
-.slick-next {
-  right: 25px;
+.portfolio-section .slick-dots {
+  bottom: -40px;
+}
+
+.portfolio-section .slick-dots li button:before {
+  font-size: 12px;
+  color: var(--azul-primario);
+}
+
+.portfolio-section .slick-dots li.slick-active button:before {
+  color: var(--cian);
+}
+
+/* Estilos responsivos para el slider */
+@media (max-width: 768px) {
+  .portfolio-item {
+    max-width: 95%;
+  }
+  
+  .portfolio-section .slick-prev {
+    left: 5px;
+  }
+  
+  .portfolio-section .slick-next {
+    right: 5px;
+  }
 }
 
 /* Estilos para el logo */
@@ -706,4 +797,64 @@ img[loading="lazy"].loaded {
   .logo-text {
     font-size: 1.25rem;
   }
+}
+
+/* Corrección para centrar TODAS las imágenes del slider */
+.slick-slider {
+  width: 100%;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto;
+  float: none;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-slide > div {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+}
+
+.portfolio-item {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16/9;
+  background: #f8f8f8;
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Asegurar que el contenedor tenga altura suficiente */
+.portfolio-section {
+  padding-bottom: 4rem;
+}
+
+/* Estilos importantes para el centrado correcto en cada slide */
+.slick-initialized .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }

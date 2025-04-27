@@ -1,20 +1,19 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { WhatsAppWidget } from 'react-whatsapp-widget';
-import 'react-whatsapp-widget/dist/index.css';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 // Importar imágenes
-import web from '../assets/img/web.jpg';
-import software from '../assets/img/software.jpg';
-import soporte from '../assets/img/soporte.jpg';
+import paginaWeb from '../assets/img/Pagina1.png';
+import software from '../assets/img/Pagina5.png';
+import soporte from '../assets/img/mantenimiento4.jpeg';
 
 const ServiciosPage = () => {
   return (
     <>
       <Navbar />
       <div className="main-container">
-        <WhatsAppWidget phoneNumber="+57320023808" message="¿En qué podemos ayudarte?" />
+        <WhatsAppButton />
         
         {/* Header */}
         <header className="page-header">
@@ -25,7 +24,7 @@ const ServiciosPage = () => {
         {/* Sección Servicios Principal */}
         <section className="services-detailed">
           <div className="service-card">
-            <img src={web} alt="Diseño y Desarrollo Web" />
+            <img src={paginaWeb} alt="Diseño y Desarrollo Web" />
             <div className="service-content">
               <h3>Diseño y Desarrollo Web</h3>
               <p>Creamos sitios web atractivos, modernos y funcionales que representan perfectamente la identidad de tu marca. Nuestras soluciones web están diseñadas para ofrecer una experiencia de usuario excepcional y optimizada para todos los dispositivos.</p>

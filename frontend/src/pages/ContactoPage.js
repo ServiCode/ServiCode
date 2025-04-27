@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { WhatsAppWidget } from 'react-whatsapp-widget';
+import WhatsAppButton from '../components/WhatsAppButton';
 import { useForm } from 'react-hook-form';
-import 'react-whatsapp-widget/dist/index.css';
 
 const ContactoPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,7 +16,7 @@ const ContactoPage = () => {
     <>
       <Navbar />
       <div className="main-container">
-        <WhatsAppWidget phoneNumber="+57320023808" message="¿En qué podemos ayudarte?" />
+        <WhatsAppButton />
         
         {/* Header */}
         <header className="page-header">
