@@ -40,9 +40,60 @@ const LandingPage = () => {
   ];
 
   const blogPosts = [
-    { title: 'Guía SEO 2025', category: 'SEO', date: '15/03/2025', excerpt: 'Optimiza tu presencia online con estas estrategias avanzadas para el posicionamiento en buscadores.' },
-    { title: 'Mejores prácticas UX', category: 'UX', date: '20/03/2025', excerpt: 'Descubre cómo mejorar la experiencia de usuario para aumentar conversiones y fidelizar clientes.' },
-    { title: 'Seguridad web en 2025', category: 'Seguridad', date: '05/04/2025', excerpt: 'Protege tu sitio web contra las nuevas amenazas cibernéticas con estos protocolos efectivos.' },
+    { 
+      id: 1,
+      title: 'Guía SEO 2025: Estrategias de posicionamiento para el nuevo algoritmo de Google', 
+      category: 'SEO', 
+      date: '15/03/2025',
+      image: pagina1, 
+      excerpt: 'Los últimos cambios en el algoritmo de Google han revolucionado el SEO. Descubre las estrategias que realmente funcionan para posicionar tu sitio web en 2025.',
+      content: 'La optimización para motores de búsqueda ha evolucionado significativamente con la introducción de IA avanzada en los algoritmos de Google. Las métricas tradicionales como el tiempo de permanencia y las palabras clave están dando paso a indicadores más sofisticados como la experiencia del usuario y la relevancia contextual. Implementa estas cinco estrategias clave para mejorar tu posicionamiento: estructura de datos semánticos, optimización para búsqueda por voz, contenido de valor adaptado a la intención del usuario, velocidad de carga optimizada, y experiencia móvil impecable.'
+    },
+    { 
+      id: 2,
+      title: 'Mejores prácticas UX: Diseño centrado en el usuario para aumentar conversiones', 
+      category: 'UX/UI', 
+      date: '20/03/2025',
+      image: pagina2, 
+      excerpt: 'Descubre cómo mejorar la experiencia de usuario para aumentar conversiones y fidelizar clientes. Técnicas probadas que generan resultados inmediatos.',
+      content: 'El diseño centrado en el usuario se ha convertido en un factor determinante para el éxito de cualquier plataforma digital. Nuestro análisis de más de 200 sitios web revela que las mejoras en UX pueden incrementar las tasas de conversión hasta en un 37%. Algunos principios fundamentales incluyen: jerarquía visual clara, formularios simplificados, mensajes de confirmación efectivos, pruebas A/B constantes, y mapas de calor para analizar el comportamiento del usuario. La clave está en eliminar la fricción en cada etapa del embudo de conversión.'
+    },
+    { 
+      id: 3,
+      title: 'Seguridad web en 2025: Protocolos avanzados contra nuevas amenazas', 
+      category: 'Seguridad', 
+      date: '05/04/2025',
+      image: pagina3, 
+      excerpt: 'Protege tu sitio web contra las nuevas amenazas cibernéticas con estos protocolos efectivos y herramientas de última generación.',
+      content: 'El panorama de la seguridad web se ha vuelto extremadamente complejo con la proliferación de ataques sofisticados basados en inteligencia artificial. Los ataques de día cero y las amenazas persistentes avanzadas (APT) representan los mayores desafíos actuales. Es fundamental implementar: autenticación multifactor biométrica, evaluaciones de seguridad continuas, cifrado de extremo a extremo, protección contra ataques DDoS basada en ML, y planes de respuesta a incidentes automatizados. La seguridad ya no es opcional, es un componente esencial de cualquier proyecto digital.'
+    },
+    { 
+      id: 4,
+      title: 'Desarrollo web Jamstack: Rendimiento, escalabilidad y seguridad', 
+      category: 'Desarrollo', 
+      date: '12/04/2025',
+      image: pagina4, 
+      excerpt: 'Explora las ventajas de la arquitectura Jamstack y cómo puede transformar la forma en que construyes aplicaciones web modernas.',
+      content: 'La arquitectura Jamstack ha reconfigurado el desarrollo web moderno ofreciendo beneficios significativos en rendimiento, seguridad y experiencia de desarrollo. Al separar el frontend del backend y aprovechar APIs para la funcionalidad dinámica, los sitios Jamstack logran tiempos de carga hasta un 60% más rápidos que las soluciones tradicionales. Nuestros proyectos recientes utilizando Next.js, Vercel y APIs headless han demostrado una reducción del 40% en los costos de infraestructura y un aumento del 25% en las conversiones gracias a la mejora en velocidad de carga.'
+    },
+    { 
+      id: 5,
+      title: 'Inteligencia Artificial en el desarrollo de software: De la teoría a la práctica', 
+      category: 'IA', 
+      date: '18/04/2025',
+      image: mantenimiento, 
+      excerpt: 'Descubre cómo integrar herramientas de IA en tu flujo de desarrollo para aumentar productividad y calidad de código.',
+      content: 'La integración de IA en el ciclo de desarrollo de software está transformando radicalmente la industria. Desde copilots que generan código hasta sistemas de testing automatizados basados en aprendizaje profundo, las herramientas de IA están redefiniendo la productividad. Nuestros equipos han experimentado un aumento del 35% en velocidad de desarrollo y una reducción del 28% en bugs mediante la adopción de Github Copilot, sistemas de code review con IA y testing automatizado inteligente. La clave está en combinar estas herramientas con procesos de revisión humana para maximizar sus beneficios.'
+    },
+    { 
+      id: 6,
+      title: 'Aplicaciones móviles híbridas vs nativas: Guía de selección 2025', 
+      category: 'Móvil', 
+      date: '25/04/2025',
+      image: pagina4, 
+      excerpt: 'Análisis comparativo y casos de uso para ayudarte a elegir la mejor estrategia de desarrollo móvil para tu proyecto.',
+      content: 'La decisión entre desarrollo nativo o híbrido sigue siendo crucial en 2025, pero con frameworks como React Native y Flutter alcanzando niveles de rendimiento cercanos a lo nativo, la balanza está cambiando. Nuestro análisis de más de 50 aplicaciones desarrolladas en los últimos dos años muestra que las soluciones híbridas modernas ofrecen un 30% de ahorro en tiempo y costos de desarrollo con solo un 5-10% de diferencia en rendimiento respecto a las aplicaciones nativas. Para aplicaciones con requerimientos estándar de UI y funcionalidad, los frameworks híbridos actuales representan la opción más estratégica.'
+    }
   ];
 
   const tecnologias = [
@@ -355,27 +406,50 @@ const LandingPage = () => {
           <p className="section-subtitle">Información valiosa sobre tecnología y tendencias digitales</p>
           
           <div className="blog-grid">
-            {blogPosts.map((post, index) => (
-              <article key={index} className="blog-post">
-                <h3>{post.title}</h3>
-                <p className="blog-excerpt">{post.excerpt}</p>
-                <div className="post-meta">
-                  <span className="category">{post.category}</span>
-                  <time>{post.date}</time>
+            {blogPosts.slice(0, 3).map((post) => (
+              <article key={post.id} className="blog-post">
+                <div className="blog-image">
+                  <img src={post.image} alt={post.title} />
+                  <span className="category-badge">{post.category}</span>
                 </div>
-                <a href="#" className="read-more">Leer más →</a>
+                <div className="blog-content">
+                  <h3>{post.title}</h3>
+                  <p className="blog-excerpt">{post.excerpt}</p>
+                  <div className="post-meta">
+                    <time>{post.date}</time>
+                    <a href="#" className="read-more">Leer más</a>
+                  </div>
+                </div>
               </article>
             ))}
+          </div>
+          
+          <div className="blog-featured">
+            <h3>Artículos destacados</h3>
+            <div className="featured-posts">
+              {blogPosts.slice(3, 6).map((post) => (
+                <div key={post.id} className="featured-post">
+                  <div className="post-category">{post.category}</div>
+                  <h4>{post.title}</h4>
+                  <time>{post.date}</time>
+                  <a href="#" className="read-more">Leer más</a>
+                </div>
+              ))}
+            </div>
           </div>
           
           <form className="newsletter-form" onSubmit={handleSubmit(onSubmit)}>
             <h3>Suscríbete a nuestro blog</h3>
             <p>Recibe en tu correo las últimas tendencias y noticias del mundo digital</p>
             <div className="form-group">
-              <input type="email" {...register('email')} placeholder="Tu correo electrónico" />
+              <input type="email" {...register('email')} placeholder="Tu correo electrónico" required />
               <button type="submit">Suscribir</button>
             </div>
           </form>
+          
+          <div className="blog-cta">
+            <a href="#" className="btn-secondary">Ver todos los artículos</a>
+          </div>
         </section>
 
         {/* Banner CTA */}
