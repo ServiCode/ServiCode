@@ -200,9 +200,6 @@ const LandingPage = () => {
               <a href="#servicios" className="btn-secondary">Conocer Servicios</a>
             </div>
           </div>
-          <div className="hero-image">
-            <img src={landing} alt="Servicode - Soluciones Digitales" />
-          </div>
         </section>
 
         {/* Sección Estadísticas */}
@@ -278,36 +275,7 @@ const LandingPage = () => {
         </section>
 
         {/* Sección Portafolio con slider */}
-        <section id="portfolio" aria-labelledby="portfolio-title" className="portfolio-section">
-          <h2 id="portfolio-title">Nuestro Trabajo</h2>
-          <p className="section-subtitle">Proyectos destacados que demuestran nuestro compromiso con la excelencia</p>
-          
-          <Slider {...sliderSettings}>
-            {portfolioItems.map((item, index) => (
-              <div key={item.id} className="portfolio-item" 
-                  onClick={() => { setSelectedImage(index); setLightboxOpen(true); }}>
-                <img 
-                  src={item.image} 
-                  alt={`Proyecto ${item.id}`} 
-                  loading="lazy" 
-                  onLoad={(e) => e.target.classList.add('loaded')} 
-                />
-              </div>
-            ))}
-          </Slider>
-          {lightboxOpen && (
-            <Lightbox
-              open={lightboxOpen}
-              close={() => setLightboxOpen(false)}
-              slides={portfolioItems.map(item => ({ src: item.image }))}
-              index={selectedImage}
-            />
-          )}
-          
-          <div className="portfolio-cta">
-            <a href="/portfolio" className="btn-primary">Ver Todos los Proyectos</a>
-          </div>
-        </section>
+        {/* Se eliminó la sección de Nuestro Trabajo (portafolio/slider) */}
 
         {/* Sección Proceso de Trabajo */}
         <section className="process-section">
@@ -349,33 +317,7 @@ const LandingPage = () => {
         </section>
 
         {/* Sección Testimonios */}
-        <section className="testimonials" aria-labelledby="testimonials-title">
-          <h2 id="testimonials-title">Casos de Éxito</h2>
-          <p className="section-subtitle">Lo que dicen nuestros clientes sobre nuestro trabajo</p>
-          
-          <div className="testimonial-carousel">
-            {testimonios.map((testimonio, index) => (
-              <div key={index} className="testimonial-card">
-                <img src={testimonio.photo} alt={testimonio.name} />
-                <blockquote>
-                  <p>{testimonio.text}</p>
-                  <cite>- {testimonio.name}, {testimonio.role}</cite>
-                </blockquote>
-              </div>
-            ))}
-          </div>
-          
-          <div className="clients-logos">
-            <h3>Empresas que confían en nosotros</h3>
-            <div className="logo-grid">
-              <div className="client-logo"><img src={logo} alt="Cliente 1" /></div>
-              <div className="client-logo"><img src={logo} alt="Cliente 2" /></div>
-              <div className="client-logo"><img src={logo} alt="Cliente 3" /></div>
-              <div className="client-logo"><img src={logo} alt="Cliente 4" /></div>
-              <div className="client-logo"><img src={logo} alt="Cliente 5" /></div>
-            </div>
-          </div>
-        </section>
+        {/* Se eliminó la sección de Casos de Éxito (testimonios) */}
 
         {/* Sección FAQ */}
         <section className="faq-section">
@@ -401,130 +343,23 @@ const LandingPage = () => {
         </section>
 
         {/* Sección Blog */}
-        <section aria-labelledby="blog-title" className="blog-section">
-          <h2 id="blog-title">Recursos y Artículos</h2>
-          <p className="section-subtitle">Información valiosa sobre tecnología y tendencias digitales</p>
-          
-          <div className="blog-grid">
-            {blogPosts.slice(0, 3).map((post) => (
-              <article key={post.id} className="blog-post">
-                <div className="blog-image">
-                  <img src={post.image} alt={post.title} />
-                  <span className="category-badge">{post.category}</span>
-                </div>
-                <div className="blog-content">
-                  <h3>{post.title}</h3>
-                  <p className="blog-excerpt">{post.excerpt}</p>
-                  <div className="post-meta">
-                    <time>{post.date}</time>
-                    <a href="#" className="read-more">Leer más</a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-          
-          <div className="blog-featured">
-            <h3>Artículos destacados</h3>
-            <div className="featured-posts">
-              {blogPosts.slice(3, 6).map((post) => (
-                <div key={post.id} className="featured-post">
-                  <div className="post-category">{post.category}</div>
-                  <h4>{post.title}</h4>
-                  <time>{post.date}</time>
-                  <a href="#" className="read-more">Leer más</a>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <form className="newsletter-form" onSubmit={handleSubmit(onSubmit)}>
-            <h3>Suscríbete a nuestro blog</h3>
-            <p>Recibe en tu correo las últimas tendencias y noticias del mundo digital</p>
-            <div className="form-group">
-              <input type="email" {...register('email')} placeholder="Tu correo electrónico" required />
-              <button type="submit">Suscribir</button>
-            </div>
-          </form>
-          
-          <div className="blog-cta">
-            <a href="#" className="btn-secondary">Ver todos los artículos</a>
-          </div>
-        </section>
+        {/* Se eliminó la sección de Recursos y Artículos (blog) */}
 
         {/* Banner CTA */}
         <section className="banner-cta">
           <div className="banner-content">
             <h2>¿Listo para transformar tu negocio?</h2>
             <p>Permítenos acompañarte en el camino hacia la innovación digital</p>
-            <a href="#contacto" className="btn-cta">Comienza tu Proyecto</a>
+            <a href="/contacto" className="btn-cta">
+              <span>Comienza tu Proyecto</span>
+              <i className="fas fa-arrow-right"></i>
+            </a>
           </div>
         </section>
 
         {/* Sección Contacto */}
-        <section id="contacto" className="contact-section" aria-labelledby="contact-title">
-          <h2 id="contact-title">Contáctanos</h2>
-          <p>Estamos aquí para ayudarte a convertir tus ideas en realidad. Contáctanos para comenzar tu proyecto.</p>
-          
-          <div className="contact-container">
-            <div className="contact-info">
-              <div className="contact-method">
-                <h3>Información de Contacto</h3>
-                <p><strong>Email:</strong> servicode.net@gmail.com</p>
-                <p><strong>Teléfono:</strong> +57 320 023 8080</p>
-                <p><strong>Horario:</strong> Lunes a Viernes, 8:00 AM - 6:00 PM</p>
-              </div>
-              <div className="contact-office">
-                <h3>Oficina Principal</h3>
-                <p>Bogotá, Colombia</p>
-                <p>También atendemos remotamente en todo el país</p>
-              </div>
-              <div className="social-links">
-                <h3>Síguenos</h3>
-                <div className="social-icons">
-                  <a href="#" className="social-icon" aria-label="Facebook">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" className="social-icon" aria-label="Instagram">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="#" className="social-icon" aria-label="LinkedIn">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-row">
-                <input 
-                  type="text" 
-                  placeholder="Nombre" 
-                  required 
-                  {...register('nombre', { required: true })} 
-                />
-                <input 
-                  type="email" 
-                  placeholder="Correo electrónico" 
-                  required 
-                  {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                />
-              </div>
-              <input 
-                type="text" 
-                placeholder="Asunto" 
-                {...register('asunto')} 
-              />
-              <textarea 
-                placeholder="Mensaje" 
-                rows="5" 
-                required 
-                {...register('mensaje', { required: true })}
-              ></textarea>
-              <button type="submit" className="btn-submit">Enviar mensaje</button>
-            </form>
-          </div>
-        </section>
+        {/* Se eliminó la sección de Contáctanos */}
+
       </div>
       <Footer />
     </>

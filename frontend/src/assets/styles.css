@@ -1683,3 +1683,90 @@ time {
     grid-template-columns: 1fr;
   }
 }
+
+/* Banner CTA Styles */
+.banner-cta {
+  background: linear-gradient(135deg, var(--azul-primario), var(--cian));
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-cta h2 {
+  font-size: 2.5rem;
+  color: var(--blanco);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.banner-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  color: var(--azul-primario);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa;
+  color: var(--cian);
+}
+
+.btn-cta i {
+  transition: transform 0.3s ease;
+}
+
+.btn-cta:hover i {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .banner-cta {
+    padding: 3rem 1.5rem;
+  }
+  
+  .banner-cta h2 {
+    font-size: 2rem;
+  }
+  
+  .banner-cta p {
+    font-size: 1.1rem;
+  }
+}
