@@ -1779,3 +1779,23 @@ time {
     font-size: 1.1rem;
   }
 }
+
+.contact-icon {
+  font-size: 2rem;
+  color: var(--cian);
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons .social-icon {
+  font-size: 1.5rem;
+  color: var(--azul-primario);
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons .social-icon:hover {
+  color: var(--cian);
+}

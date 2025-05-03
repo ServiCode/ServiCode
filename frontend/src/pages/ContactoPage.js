@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { useForm } from 'react-hook-form';
+import { FaEnvelope, FaPhoneAlt, FaClock, FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 const ContactoPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -129,7 +130,7 @@ const ContactoPage = () => {
                 <div className="contact-details">
                   <div className="contact-item">
                     <div className="contact-icon">
-                      <i className="fas fa-envelope"></i>
+                      <FaEnvelope />
                     </div>
                     <div className="contact-text">
                       <h3>Correo electrónico</h3>
@@ -139,7 +140,7 @@ const ContactoPage = () => {
                   
                   <div className="contact-item">
                     <div className="contact-icon">
-                      <i className="fas fa-phone"></i>
+                      <FaPhoneAlt />
                     </div>
                     <div className="contact-text">
                       <h3>Teléfonos</h3>
@@ -151,7 +152,7 @@ const ContactoPage = () => {
                   
                   <div className="contact-item">
                     <div className="contact-icon">
-                      <i className="fas fa-clock"></i>
+                      <FaClock />
                     </div>
                     <div className="contact-text">
                       <h3>Horario de atención</h3>
@@ -165,16 +166,16 @@ const ContactoPage = () => {
                   <h3>Síguenos en redes</h3>
                   <div className="social-icons">
                     <a href="#" className="social-icon" aria-label="Facebook">
-                      <i className="fab fa-facebook-f"></i>
+                      <FaFacebookF />
                     </a>
                     <a href="#" className="social-icon" aria-label="Instagram">
-                      <i className="fab fa-instagram"></i>
+                      <FaInstagram />
                     </a>
                     <a href="#" className="social-icon" aria-label="Twitter">
-                      <i className="fab fa-twitter"></i>
+                      <FaTwitter />
                     </a>
                     <a href="#" className="social-icon" aria-label="LinkedIn">
-                      <i className="fab fa-linkedin-in"></i>
+                      <FaLinkedinIn />
                     </a>
                   </div>
                 </div>
