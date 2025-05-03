@@ -10,6 +10,7 @@ import '../assets/styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaCloudDownloadAlt, FaShieldAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 // Importar imágenes locales
 import pagina1 from '../assets/img/Pagina1.png';
@@ -196,8 +197,8 @@ const LandingPage = () => {
             <h1>Transformamos Ideas en Soluciones Digitales</h1>
             <p>Desarrollo web, software a medida y soporte técnico para llevar tu negocio al siguiente nivel</p>
             <div className="hero-buttons">
-              <a href="#contacto" className="btn-primary">Solicitar Cotización</a>
-              <a href="#servicios" className="btn-secondary">Conocer Servicios</a>
+              <Link to="/contacto" className="btn-primary">Solicitar Cotización</Link>
+              <Link to="/servicios" className="btn-secondary">Conocer Servicios</Link>
             </div>
           </div>
         </section>
