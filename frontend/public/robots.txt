@@ -1,3 +1,20 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://servicode.net/sitemap.xml
+
+# Proteger rutas de administración
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-login
+Disallow: */feed/
+Disallow: */trackback/
+
+# Evitar indexación de archivos y directorios específicos
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /assets/*.js$
+Disallow: /assets/*.css$
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Slider from 'react-slick';
-import Lightbox from 'yet-another-react-lightbox';
+import { Helmet } from 'react-helmet-async';
 import "yet-another-react-lightbox/styles.css";
 import { useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar';
@@ -11,22 +10,65 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaCloudDownloadAlt, FaShieldAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
-// Importar imágenes locales
 import pagina1 from '../assets/img/Pagina1.png';
 import pagina2 from '../assets/img/Pagina2.png';
 import pagina3 from '../assets/img/Pagina3.png';
 import pagina4 from '../assets/img/Pagina4.png';
 import mantenimiento from '../assets/img/mantenimiento5.jpeg';
 import ceo from '../assets/img/ceo1.jpeg';  
-import landing from '../assets/img/landing.jpg';
-import logo from '../assets/img/logo.png';
 
 const LandingPage = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeAccordion, setActiveAccordion] = useState(null);
   const { register, handleSubmit } = useForm();
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Servicode",
+    "url": "https://servicode.net",
+    "description": "Desarrollo web, software a medida y soporte técnico para llevar tu negocio al siguiente nivel",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/servicode",
+      "https://twitter.com/servicode"
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Desarrollo Web",
+          "description": "Sitios web responsivos, e-commerce y aplicaciones web optimizadas para conversión"
+        },
+        {
+          "@type": "Offer",
+          "name": "Software a Medida",
+          "description": "Soluciones personalizadas que automatizan y optimizan tus procesos de negocio"
+        },
+        {
+          "@type": "Offer",
+          "name": "Soporte Técnico",
+          "description": "Asistencia técnica remota y presencial para mantener tus sistemas funcionando"
+        }
+      ]
+    }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://servicode.net"
+    }]
+  };
 
   const portfolioItems = [
     { id: 1, image: pagina1 },
@@ -187,6 +229,12 @@ const LandingPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Servicode | Desarrollo Web y Software a Medida</title>
+        <meta name="description" content="Expertos en desarrollo web, software a medida y soporte técnico. Transformamos ideas en soluciones digitales para impulsar tu negocio." />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Navbar />
       <div className="main-container">
         <WhatsAppButton />
@@ -275,9 +323,6 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Sección Portafolio con slider */}
-        {/* Se eliminó la sección de Nuestro Trabajo (portafolio/slider) */}
-
         {/* Sección Proceso de Trabajo */}
         <section className="process-section">
           <h2>Nuestro Proceso</h2>
@@ -296,8 +341,6 @@ const LandingPage = () => {
             ))}
           </div>
         </section>
-
-        {/* Sección Tecnologías */}
         <section className="tech-section">
           <h2>Tecnologías que Dominamos</h2>
           <p className="section-subtitle">Herramientas y frameworks de última generación para tu proyecto</p>
@@ -317,10 +360,6 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Sección Testimonios */}
-        {/* Se eliminó la sección de Casos de Éxito (testimonios) */}
-
-        {/* Sección FAQ */}
         <section className="faq-section">
           <h2>Preguntas Frecuentes</h2>
           <p className="section-subtitle">Respuestas a las dudas más comunes sobre nuestros servicios</p>
@@ -342,11 +381,6 @@ const LandingPage = () => {
             ))}
           </div>
         </section>
-
-        {/* Sección Blog */}
-        {/* Se eliminó la sección de Recursos y Artículos (blog) */}
-
-        {/* Banner CTA */}
         <section className="banner-cta">
           <div className="banner-content">
             <h2>¿Listo para transformar tu negocio?</h2>
@@ -357,10 +391,6 @@ const LandingPage = () => {
             </a>
           </div>
         </section>
-
-        {/* Sección Contacto */}
-        {/* Se eliminó la sección de Contáctanos */}
-
       </div>
       <Footer />
     </>

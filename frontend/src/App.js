@@ -2,29 +2,28 @@ import './App.css';
 import './assets/styles.css';
 import './assets/styles-additional.css';
 import './assets/contacto-styles.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import LandingPage from './pages/LandingPage';
 import ServiciosPage from './pages/ServiciosPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactoPage from './pages/ContactoPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Redirección automática desde la raíz "/" a "/landing" */}
-        <Route path="/" element={<Navigate to="/landing" replace />} />
-
-        {/* Rutas principales */}
-        <Route path="/landing" element={<LandingPage />} />
-        <Route path="/servicios" element={<ServiciosPage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/contacto" element={<ContactoPage />} />
-
-        {/* Ruta opcional para manejar páginas no encontradas */}
-        <Route path="*" element={<Navigate to="/landing" replace />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/servicios" element={<ServiciosPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/contacto" element={<ContactoPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
