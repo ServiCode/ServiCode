@@ -1079,7 +1079,7 @@ img[loading="lazy"].loaded {
   justify-content: center;
   background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
   color: var(--blanco);
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
   border-radius: 1rem;
   margin-bottom: 2.5rem;
   box-shadow: var(--sombra-media);
@@ -1090,33 +1090,39 @@ img[loading="lazy"].loaded {
 
 .hero-content {
   flex: 1;
-  max-width: 700px;
+  max-width: min(700px, 90%);
   z-index: 1;
   text-align: center;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-  letter-spacing: -1px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  line-height: 1.2;
+  margin-bottom: clamp(1rem, 3vw, 1.2rem);
+  letter-spacing: -0.5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero-content p {
-  font-size: 1.35rem;
-  margin-bottom: 2.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.2rem);
   opacity: 0.95;
   color: #e3e9f7;
   font-weight: 400;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1.2rem;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -1168,6 +1174,36 @@ img[loading="lazy"].loaded {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries específicos para el hero banner */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  
+  .hero-content p {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    max-width: 90%;
+  }
 }
 
 /* Sección de Estadísticas */
