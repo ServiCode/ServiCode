@@ -1,17 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { useForm } from 'react-hook-form';
-import { FaEnvelope, FaPhoneAlt, FaClock, FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaTimes } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaClock, FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaTimes, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjsConfig';
 
 const ContactoPage = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const form = useRef();
+  
+  // Limpiar el estado de envío después de 6 segundos
+  useEffect(() => {
+    if (submitStatus.message) {
+      const timer = setTimeout(() => {
+        setSubmitStatus({ success: false, message: '' });
+      }, 6000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const onSubmit = (data) => {
-    console.log('Formulario enviado:', data);
-    // Aquí iría la lógica para enviar el formulario
+    setIsSubmitting(true);
+    setSubmitStatus({ success: false, message: '' });
+
+    // Usar las credenciales del archivo de configuración
+    const { serviceId, templateId, publicKey } = EMAILJS_CONFIG;
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+      .then((result) => {
+        console.log('Correo enviado con éxito:', result.text);
+        setSubmitStatus({ 
+          success: true, 
+          message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.' 
+        });
+        reset(); // Limpia los campos del formulario
+      })
+      .catch((error) => {
+        console.error('Error al enviar el correo:', error.text);
+        setSubmitStatus({ 
+          success: false, 
+          message: 'Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente.' 
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const togglePrivacyPolicy = (e) => {
@@ -101,12 +140,21 @@ const ContactoPage = () => {
               <h2>Envíanos un mensaje</h2>
               <p>Completa el formulario y nos pondremos en contacto contigo a la brevedad</p>
               
-              <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+              {submitStatus.message && (
+                <div className={`submit-status ${submitStatus.success ? 'success' : 'error'}`}>
+                  {submitStatus.success ? <FaCheckCircle style={{marginRight: '10px'}} /> : <FaExclamationCircle style={{marginRight: '10px'}} />}
+                  {submitStatus.message}
+                </div>
+              )}
+              
+              <form className="contact-form" ref={form} onSubmit={handleSubmit(onSubmit)}>
+                {/* Fila 1: Nombre y Apellido */}
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="nombre">Nombre*</label>
                     <input 
                       id="nombre"
+                      name="nombre"
                       type="text" 
                       placeholder="Tu nombre" 
                       {...register('nombre', { required: "Este campo es obligatorio" })} 
@@ -118,6 +166,7 @@ const ContactoPage = () => {
                     <label htmlFor="apellido">Apellido*</label>
                     <input 
                       id="apellido"
+                      name="apellido"
                       type="text" 
                       placeholder="Tu apellido" 
                       {...register('apellido', { required: "Este campo es obligatorio" })} 
@@ -126,11 +175,13 @@ const ContactoPage = () => {
                   </div>
                 </div>
                 
+                {/* Fila 2: Email y Teléfono */}
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="email">Correo electrónico*</label>
                     <input 
                       id="email"
+                      name="email"
                       type="email" 
                       placeholder="correo@ejemplo.com" 
                       {...register('email', { 
@@ -148,6 +199,7 @@ const ContactoPage = () => {
                     <label htmlFor="telefono">Teléfono</label>
                     <input 
                       id="telefono"
+                      name="telefono"
                       type="tel" 
                       placeholder="+57 300 123 4567" 
                       {...register('telefono')} 
@@ -155,39 +207,54 @@ const ContactoPage = () => {
                   </div>
                 </div>
                 
-                <div className="form-group">
-                  <label htmlFor="asunto">Asunto*</label>
-                  <input 
-                    id="asunto"
-                    type="text" 
-                    placeholder="¿Sobre qué quieres hablar?" 
-                    {...register('asunto', { required: "Este campo es obligatorio" })} 
-                  />
-                  {errors.asunto && <span className="error-message">{errors.asunto.message}</span>}
+                {/* Fila 3: Asunto (ancho completo) */}
+                <div className="form-row">
+                  <div className="form-group full-width">
+                    <label htmlFor="asunto">Asunto*</label>
+                    <input 
+                      id="asunto"
+                      name="asunto"
+                      type="text" 
+                      placeholder="¿Sobre qué quieres hablar?" 
+                      {...register('asunto', { required: "Este campo es obligatorio" })} 
+                    />
+                    {errors.asunto && <span className="error-message">{errors.asunto.message}</span>}
+                  </div>
                 </div>
                 
-                <div className="form-group">
-                  <label htmlFor="mensaje">Mensaje*</label>
-                  <textarea 
-                    id="mensaje"
-                    placeholder="Cuéntanos más sobre tu proyecto o consulta" 
-                    rows="6" 
-                    {...register('mensaje', { required: "Este campo es obligatorio" })}
-                  ></textarea>
-                  {errors.mensaje && <span className="error-message">{errors.mensaje.message}</span>}
+                {/* Fila 4: Mensaje (ancho completo) */}
+                <div className="form-row">
+                  <div className="form-group full-width">
+                    <label htmlFor="mensaje">Mensaje*</label>
+                    <textarea 
+                      id="mensaje"
+                      name="mensaje"
+                      placeholder="Cuéntanos más sobre tu proyecto o consulta" 
+                      rows="6" 
+                      {...register('mensaje', { required: "Este campo es obligatorio" })}
+                    ></textarea>
+                    {errors.mensaje && <span className="error-message">{errors.mensaje.message}</span>}
+                  </div>
                 </div>
                 
-                <div className="form-group checkbox-group">
+                <div className="checkbox-group">
                   <input 
                     type="checkbox" 
                     id="politica" 
+                    name="politica"
                     {...register('politica', { required: "Debes aceptar la política de privacidad" })} 
                   />
                   <label htmlFor="politica">Acepto la <a href="#" onClick={togglePrivacyPolicy}>política de privacidad</a></label>
                   {errors.politica && <span className="error-message">{errors.politica.message}</span>}
                 </div>
                 
-                <button type="submit" className="submit-button">Enviar mensaje</button>
+                <button 
+                  type="submit" 
+                  className="submit-button" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                </button>
               </form>
             </div>
             

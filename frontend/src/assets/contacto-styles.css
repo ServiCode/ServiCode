@@ -2,15 +2,19 @@
 
 /* Sección principal de contacto */
 .contact-main-section {
-  padding: 0;
+  padding: 3rem 0;
   box-shadow: none;
   background: transparent;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: 2rem;
+  gap: 3rem;
+  align-items: stretch;
+  height: auto;
 }
 
 /* Contenedor del formulario */
@@ -19,6 +23,10 @@
   padding: 2.5rem;
   border-radius: 1rem;
   box-shadow: var(--sombra-suave);
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form-container h2 {
@@ -37,94 +45,178 @@
   opacity: 0.8;
 }
 
-/* Formulario */
+/* Formulario - 2 elementos por fila */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+}
+
+/* Filas del formulario - 2 columnas */
 .form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  width: 100%;
 }
 
+/* Campo individual del formulario */
 .form-group {
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  position: relative;
 }
 
+/* Etiquetas de campo */
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.625rem;
   color: var(--azul-primario);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.05rem;
 }
 
+/* Campos de entrada y textarea */
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--gris-medio);
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid var(--gris-medio);
   border-radius: 0.5rem;
   font-family: var(--fuente-principal);
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Estilos específicos para textarea */
+.form-group textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--cian);
-  box-shadow: 0 0 0 3px rgba(34, 122, 238, 0.1);
+  box-shadow: 0 0 0 3px rgba(34, 122, 238, 0.15);
 }
 
+/* Mensaje de error */
 .error-message {
   color: #e53e3e;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin-top: 0.5rem;
-  display: block;
+  font-weight: 500;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
 }
 
+/* Checkbox de política */
 .checkbox-group {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1.5rem;
 }
 
 .checkbox-group input {
-  width: auto;
-  margin-top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.125rem;
+  cursor: pointer;
 }
 
 .checkbox-group label {
   margin-bottom: 0;
   font-weight: normal;
   color: var(--gris-oscuro);
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
-.checkbox-group a {
-  color: var(--cian);
-  text-decoration: none;
+.checkbox-group .error-message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
+/* Placeholder color */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+  opacity: 0.7;
+}
+
+/* Botón de enviar */
 .submit-button {
   background: var(--azul-primario);
   color: var(--blanco);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.9rem 2.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.05rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   display: inline-block;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  align-self: flex-start;
 }
 
 .submit-button:hover {
   background: var(--azul-secundario);
   transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Información de contacto */
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 122, 238, 0.25);
+}
+
+.submit-button:disabled {
+  background-color: var(--gris-medio);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    align-self: center;
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+  }
+}
+
+/* Información de contacto - Ajustado para igualar altura */
 .contact-info-container {
-  margin-bottom: 2rem;
+  height: 100%;
+  display: flex;
 }
 
 .contact-info-card {
@@ -132,15 +224,19 @@
   color: var(--blanco);
   padding: 2.5rem;
   border-radius: 1rem;
-  height: 100%;
   box-shadow: var(--sombra-media);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-info-card h2 {
   color: var(--blanco);
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   padding-bottom: 0;
+  font-size: 1.6rem;
 }
 
 .contact-info-card h2::after {
@@ -148,8 +244,10 @@
 }
 
 .contact-info-card p {
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
   opacity: 0.9;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .contact-details {
@@ -157,61 +255,71 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  flex: 1;
 }
 
+/* Espacio adicional entre elementos de contacto */
 .contact-item {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+  margin-bottom: 0.5rem;
 }
 
 /* Iconos de información de contacto */
 .contact-icon {
   background: rgba(255, 255, 255, 0.2);
-  width: 3rem;
-  height: 3rem;
+  width: 3.25rem;
+  height: 3.25rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   color: white;
 }
 
 .contact-text h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .contact-text p {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
   opacity: 0.9;
   font-size: 0.95rem;
 }
 
 /* Redes sociales */
+.social-media {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
 .social-media h3 {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .social-icons {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
 }
 
 /* Iconos de redes sociales */
 .social-icon {
   background: rgba(255, 255, 255, 0.2);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .social-icon:hover {
@@ -269,20 +377,34 @@
 }
 
 /* Responsivo */
+@media (max-width: 1200px) {
+  .contact-main-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .contact-grid {
+    gap: 2rem;
+  }
+  
+  .contact-form-container {
+    padding: 2.5rem;
+  }
+}
+
 @media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
   
   .contact-info-container {
-    margin-bottom: 0;
+    margin-bottom: 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .contact-main-section {
+    padding: 1.5rem;
   }
   
   .faq-container {
@@ -291,6 +413,22 @@
   
   .contact-info-card {
     padding: 1.5rem;
+  }
+  
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+  }
+}
+
+/* Para pantallas muy pequeñas, cambiar a 1 elemento por fila */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 
@@ -370,4 +508,84 @@
     padding: 1.5rem;
     max-height: 85vh;
   }
+}
+
+/* Estilos para mensajes de estado de envío */
+.submit-status {
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.submit-status.success {
+  background-color: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+.submit-status.error {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.submit-button:disabled {
+  background-color: var(--gris-medio);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Ajustes para mantener 2 elementos por fila */
+.form-group.empty {
+  margin-bottom: 0;
+  visibility: hidden;
+}
+
+/* Ajustes específicos para el textarea */
+.form-group textarea {
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+}
+
+/* Margen inferior reducido para último form-row antes del checkbox */
+.form-row:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+/* Ajuste específico para Asunto */
+.form-row:nth-child(3) .form-group {
+  margin-bottom: 1.25rem;
+}
+
+/* Estilos para el enlace de política de privacidad */
+.checkbox-group a {
+  color: var(--cian);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+  color: var(--azul-primario);
+}
+
+/* Campo de formulario que ocupa ancho completo */
+.form-group.full-width {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* Estilos específicos para textarea */
+.form-group textarea {
+  min-height: 180px;
+  resize: vertical;
+  width: 100%;
 } 
