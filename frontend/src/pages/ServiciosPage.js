@@ -130,23 +130,33 @@ const ServiciosPage = () => {
           <div className="methodology-steps">
             <div className="step">
               <div className="step-number">1</div>
-              <h3>Análisis y Planificación</h3>
-              <p>Entendemos tus necesidades y objetivos para diseñar la solución ideal</p>
+              <h3>Descubrimiento y Consultoría</h3>
+              <p>Analizamos a fondo tus necesidades, objetivos de negocio y requisitos técnicos para diseñar la solución perfecta</p>
             </div>
             <div className="step">
               <div className="step-number">2</div>
-              <h3>Diseño y Desarrollo</h3>
-              <p>Creamos prototipos y desarrollamos soluciones funcionales y atractivas</p>
+              <h3>Planificación Estratégica</h3>
+              <p>Desarrollamos un plan detallado, definimos tecnologías, recursos y establecemos hitos claros del proyecto</p>
             </div>
             <div className="step">
               <div className="step-number">3</div>
-              <h3>Pruebas y Optimización</h3>
-              <p>Realizamos pruebas exhaustivas para garantizar calidad y rendimiento</p>
+              <h3>Diseño UX/UI</h3>
+              <p>Creamos prototipos interactivos y diseños centrados en el usuario que garantizan una experiencia excepcional</p>
             </div>
             <div className="step">
               <div className="step-number">4</div>
-              <h3>Implementación y Soporte</h3>
-              <p>Desplegamos la solución y brindamos soporte continuo</p>
+              <h3>Desarrollo Ágil</h3>
+              <p>Implementamos la solución con metodologías ágiles, entregas incrementales y feedback continuo</p>
+            </div>
+            <div className="step">
+              <div className="step-number">5</div>
+              <h3>Testing y Optimización</h3>
+              <p>Realizamos pruebas exhaustivas de calidad, seguridad y rendimiento para garantizar una solución robusta</p>
+            </div>
+            <div className="step">
+              <div className="step-number">6</div>
+              <h3>Despliegue y Soporte</h3>
+              <p>Implementamos la solución en producción y proporcionamos soporte continuo para asegurar su éxito</p>
             </div>
           </div>
         </section>
