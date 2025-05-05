@@ -8,7 +8,7 @@ import WhatsAppButton from '../components/WhatsAppButton';
 import '../assets/styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaCloudDownloadAlt, FaShieldAlt } from 'react-icons/fa';
+import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaCloudDownloadAlt, FaShieldAlt, FaTools, FaMegaport } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import pagina1 from '../assets/img/Pagina1.png';
 import pagina2 from '../assets/img/Pagina2.png';
@@ -317,6 +317,32 @@ const LandingPage = () => {
                 <li>Arquitectura de sistemas</li>
                 <li>Seguridad informática</li>
                 <li>Análisis de datos</li>
+              </ul>
+              <a href="/servicios" className="service-link">Más información →</a>
+            </div>
+
+            <div className="service-box">
+              <div className="service-icon"><FaTools /></div>
+              <h3>Soporte de Sistemas Existentes</h3>
+              <p>Mantenimiento y mejora de sistemas y aplicaciones ya desarrolladas, independientemente de su origen.</p>
+              <ul>
+                <li>Mantenimiento de sitios web</li>
+                <li>Actualización de sistemas legacy</li>
+                <li>Migración de plataformas</li>
+                <li>Optimización de código</li>
+              </ul>
+              <a href="/servicios" className="service-link">Más información →</a>
+            </div>
+
+            <div className="service-box">
+              <div className="service-icon"><FaMegaport /></div>
+              <h3>Marketing Digital</h3>
+              <p>Estrategias de marketing digital para potenciar tu presencia online y alcanzar nuevos clientes.</p>
+              <ul>
+                <li>SEO y SEM</li>
+                <li>Redes sociales</li>
+                <li>Email marketing</li>
+                <li>Analítica web</li>
               </ul>
               <a href="/servicios" className="service-link">Más información →</a>
             </div>

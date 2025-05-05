@@ -1278,9 +1278,10 @@ img[loading="lazy"].loaded {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .service-box {
@@ -1292,6 +1293,9 @@ img[loading="lazy"].loaded {
   position: relative;
   overflow: hidden;
   box-shadow: var(--sombra-suave);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-box:hover {
@@ -1347,6 +1351,24 @@ img[loading="lazy"].loaded {
 .service-link:hover {
   color: var(--azul-secundario);
   text-decoration: underline;
+}
+
+@media (min-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Portfolio section improvements */

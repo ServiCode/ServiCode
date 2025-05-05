@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaCloudDownloadAlt, FaShieldAlt, FaTools, FaMegaport } from 'react-icons/fa';
 
 // Importar imágenes
 import paginaWeb from '../assets/img/Pagina1.png';
@@ -66,6 +67,54 @@ const ServiciosPage = () => {
                 <li>Optimización de rendimiento</li>
                 <li>Actualizaciones de seguridad</li>
                 <li>Soporte remoto y presencial</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="service-card reverse">
+            <img src={software} alt="Consultoría IT" />
+            <div className="service-content">
+              <h3>Consultoría IT</h3>
+              <p>Brindamos asesoría especializada para implementar las mejores soluciones tecnológicas para tu negocio. Nuestro equipo de expertos te ayudará a tomar decisiones informadas y estratégicas en tu transformación digital.</p>
+              <h4>Servicios:</h4>
+              <ul>
+                <li>Transformación digital</li>
+                <li>Arquitectura de sistemas</li>
+                <li>Seguridad informática</li>
+                <li>Análisis de datos</li>
+                <li>Optimización de procesos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="service-card">
+            <img src={soporte} alt="Soporte de Sistemas Existentes" />
+            <div className="service-content">
+              <h3>Soporte de Sistemas Existentes</h3>
+              <p>Nos especializamos en el mantenimiento y mejora de sistemas y aplicaciones ya desarrolladas, independientemente de su origen. Optimizamos y actualizamos tus soluciones existentes para mantenerlas funcionando de manera eficiente.</p>
+              <h4>Servicios:</h4>
+              <ul>
+                <li>Mantenimiento de sitios web</li>
+                <li>Actualización de sistemas legacy</li>
+                <li>Migración de plataformas</li>
+                <li>Optimización de código</li>
+                <li>Integración con nuevas tecnologías</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="service-card reverse">
+            <img src={paginaWeb} alt="Marketing Digital" />
+            <div className="service-content">
+              <h3>Marketing Digital</h3>
+              <p>Potenciamos tu presencia online con estrategias de marketing digital efectivas. Ayudamos a tu negocio a alcanzar nuevos clientes y aumentar su visibilidad en el mundo digital.</p>
+              <h4>Servicios:</h4>
+              <ul>
+                <li>SEO y SEM</li>
+                <li>Marketing en redes sociales</li>
+                <li>Email marketing</li>
+                <li>Analítica web</li>
+                <li>Estrategias de contenido</li>
               </ul>
             </div>
           </div>
