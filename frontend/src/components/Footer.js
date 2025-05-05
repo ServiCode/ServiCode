@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Contáctanos</h3>
           <ul className="footer-links">
-            <li>Email: servicode.net@gmail.com</li>
+            <li>Email: info@servicode.net</li>
             <li>Teléfonos:</li>
             <li>+57 320 023 808 <br></br> +57 322 7143436 <br></br> +57 324 4230348</li>
           </ul>
