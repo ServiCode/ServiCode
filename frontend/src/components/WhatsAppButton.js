@@ -1,11 +1,20 @@
-import React from 'react';
-import { WhatsAppWidget } from 'react-whatsapp-widget';
+import React, { memo, lazy, Suspense } from 'react';
 import 'react-whatsapp-widget/dist/index.css';
 import logo from '../assets/img/logo3.png';
 
-const WhatsAppButton = () => {
-  // Componente personalizado con imagen más grande
-  const CompanyLogoComponent = () => (
+// Carga diferida del widget de WhatsApp con manejo correcto de la importación
+const WhatsAppWidget = lazy(() => 
+  import('react-whatsapp-widget').then(module => ({ default: module.WhatsAppWidget }))
+);
+
+const WhatsAppButton = memo(() => {
+  // Componente de carga para el widget
+  const LoadingWidget = () => (
+    <div style={{ width: 70, height: 70 }} />
+  );
+
+  // Componente del logo optimizado y memoizado
+  const CompanyLogoComponent = memo(() => (
     <div
       style={{
         width: '100%',
@@ -14,11 +23,13 @@ const WhatsAppButton = () => {
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        transform: 'scale(3)', // Hacer la imagen 1.5 veces más grande
+        transform: 'scale(3)',
         transformOrigin: 'center',
       }}
     />
-  );
+  ));
+
+  CompanyLogoComponent.displayName = 'CompanyLogoComponent';
 
   return (
     <div style={{ 
@@ -29,12 +40,13 @@ const WhatsAppButton = () => {
       width: 'auto',
       height: 'auto'
     }}>
-      <WhatsAppWidget 
-        phoneNumber="+573204340912" 
-        companyName="Servicode"
-        CompanyIcon={CompanyLogoComponent}
-        replyTimeText="Páginas web, software a medida y soporte técnico. 🛠️🛜"
-        message="¡Hola! Bienvenido/a a ServiCode 👋💻
+      <Suspense fallback={<LoadingWidget />}>
+        <WhatsAppWidget 
+          phoneNumber="+573204340912" 
+          companyName="Servicode"
+          CompanyIcon={CompanyLogoComponent}
+          replyTimeText="Páginas web, software a medida y soporte técnico. 🛠️🛜"
+          message="¡Hola! Bienvenido/a a ServiCode 👋💻
                   Gracias por comunicarte con nosotros.
 
                   En ServiCode nos especializamos en el desarrollo de páginas web 🌐, software a la medida 🧩, soporte técnico remoto y presencial 🛠️, y asesorías tecnológicas personalizadas 🤝.
@@ -43,17 +55,19 @@ const WhatsAppButton = () => {
                   ¿En qué podemos ayudarte hoy? Si necesitas más información, no dudes en escribirnos. Te responderemos lo antes posible ⏳.
 
                   ¡Gracias por confiar en ServiCode, tecnología a tu alcance! ⚙️✨"
-        // Estilos personalizados para agrandar elementos
-        styles={{
-          headerAvatar: {
-            width: '50px',  // Aumentar ancho
-            height: '50px', // Aumentar altura
-            margin: '0 10px',
-          }
-        }}
-      />
+          styles={{
+            headerAvatar: {
+              width: '50px',
+              height: '50px',
+              margin: '0 10px',
+            }
+          }}
+        />
+      </Suspense>
     </div>
   );
-};
+});
 
-export default WhatsAppButton; 
+WhatsAppButton.displayName = 'WhatsAppButton';
+
+export default WhatsAppButton;
