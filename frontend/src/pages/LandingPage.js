@@ -157,10 +157,10 @@ const LandingPage = () => {
   ];
 
   const estadisticas = [
-    { valor: '98%', etiqueta: 'Clientes Satisfechos' },
-    { valor: '120+', etiqueta: 'Proyectos Completados' },
-    { valor: '5', etiqueta: 'Años de Experiencia' },
-    { valor: '24/7', etiqueta: 'Soporte Técnico' },
+    { valor: '50+', etiqueta: 'Proyectos Completados' },
+    { valor: '30+', etiqueta: 'Clientes Satisfechos' },
+    { valor: '5+', etiqueta: 'Años de Experiencia' },
+    { valor: '100%', etiqueta: 'Compromiso' }
   ];
 
   const preguntas = [
