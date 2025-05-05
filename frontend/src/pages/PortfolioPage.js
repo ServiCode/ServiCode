@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
+import { Link } from 'react-router-dom';
 
 // Importar imágenes
 import paginaWeb from '../assets/img/Pagina1.png';
@@ -175,20 +176,20 @@ const PortfolioPage = () => {
           <h2>Nuestros Números</h2>
           <div className="stats-container">
             <div className="stat-item">
-              <div className="stat-number">50+</div>
-              <div className="stat-text">Proyectos completados</div>
+              <div className="stat-number">97%</div>
+              <div className="stat-text">Satisfacción Cliente</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">30+</div>
-              <div className="stat-text">Clientes satisfechos</div>
+              <div className="stat-number">45%</div>
+              <div className="stat-text">Ahorro en Costos</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">5+</div>
-              <div className="stat-text">Años de experiencia</div>
+              <div className="stat-number">+40</div>
+              <div className="stat-text">Proyectos Completados</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-text">Compromiso</div>
+              <div className="stat-number">24/7</div>
+              <div className="stat-text">Soporte Garantizado</div>
             </div>
           </div>
         </section>
@@ -197,7 +198,7 @@ const PortfolioPage = () => {
         <section className="cta-section">
           <h2>¿Tienes un proyecto en mente?</h2>
           <p>Estamos listos para convertir tus ideas en realidad</p>
-          <a href="/#contacto" className="cta-button">Contáctanos</a>
+          <Link to="/contacto" className="cta-button">Contáctanos</Link>
         </section>
       </div>
       <Footer />
