@@ -6,11 +6,12 @@ import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
 
 // Importar imágenes
-import pagina1 from '../assets/img/Pagina1.png';
-import pagina2 from '../assets/img/Pagina2.png';
-import pagina3 from '../assets/img/Pagina3.png';
-import pagina4 from '../assets/img/Pagina4.png';
-import mantenimiento from '../assets/img/mantenimiento.jpeg';
+import paginaWeb from '../assets/img/Pagina1.png';
+import software from '../assets/img/Pagina5.png';
+import soporte from '../assets/img/mantenimiento4.png';
+import consultoria from '../assets/img/pagina7.png';
+import sistemasExistentes from '../assets/img/pagina8.png';
+import marketingDigital from '../assets/img/pagina9.png';
 
 const PortfolioPage = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -20,35 +21,51 @@ const PortfolioPage = () => {
   const portfolioProjects = [
     { 
       id: 1, 
-      title: 'E-commerce MiTienda', 
+      title: 'E-commerce Premium', 
       category: 'web', 
-      image: pagina1,
-      description: 'Desarrollo de tienda online con pasarela de pagos integrada y gestión de inventario.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API']
+      image: paginaWeb,
+      description: 'Plataforma de comercio electrónico completa con integración de pagos, gestión de inventario y panel administrativo personalizado.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'AWS']
     },
     { 
       id: 2, 
-      title: 'Software de Gestión Empresarial', 
+      title: 'Sistema ERP Empresarial', 
       category: 'software', 
-      image: pagina3,
-      description: 'Sistema de gestión a medida para empresa del sector logístico.',
-      technologies: ['Java', 'Spring Boot', 'MySQL', 'Docker']
+      image: software,
+      description: 'Software de gestión empresarial integral para manejo de recursos, contabilidad, inventario y recursos humanos.',
+      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker', 'React']
     },
     { 
       id: 3, 
-      title: 'Migración de Servidores', 
+      title: 'Soporte IT Corporativo', 
       category: 'soporte', 
-      image: mantenimiento,
-      description: 'Migración y optimización de infraestructura en la nube para startup tecnológica.',
-      technologies: ['AWS', 'Kubernetes', 'CI/CD', 'Terraform']
+      image: soporte,
+      description: 'Servicio de soporte técnico 24/7 para empresa multinacional, incluyendo mantenimiento preventivo y correctivo.',
+      technologies: ['ServiceNow', 'Docker', 'Kubernetes', 'Terraform']
     },
     { 
       id: 4, 
-      title: 'Portal Educativo', 
-      category: 'web', 
-      image: pagina2,
-      description: 'Plataforma de cursos online con sistema de membresías y contenido multimedia.',
-      technologies: ['Next.js', 'Firebase', 'Stripe', 'AWS S3']
+      title: 'Consultoría Digital', 
+      category: 'consultoria', 
+      image: consultoria,
+      description: 'Asesoramiento en transformación digital para cadena de retail, incluyendo estrategia tecnológica y optimización de procesos.',
+      technologies: ['Business Intelligence', 'Power BI', 'Data Analytics', 'Cloud Architecture']
+    },
+    { 
+      id: 5, 
+      title: 'Modernización Legacy', 
+      category: 'sistemas', 
+      image: sistemasExistentes,
+      description: 'Actualización y migración de sistema legacy bancario a arquitectura moderna y escalable.',
+      technologies: ['Python', 'Microservices', 'Azure', 'CI/CD', 'Docker']
+    },
+    { 
+      id: 6, 
+      title: 'Marketing Digital 360°', 
+      category: 'marketing', 
+      image: marketingDigital,
+      description: 'Estrategia integral de marketing digital para empresa de servicios, incluyendo SEO, SEM y redes sociales.',
+      technologies: ['Google Analytics', 'SEO', 'Meta Ads', 'Email Marketing']
     }
   ];
 
@@ -91,6 +108,24 @@ const PortfolioPage = () => {
             >
               Soporte
             </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'consultoria' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('consultoria')}
+            >
+              Consultoría
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'sistemas' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('sistemas')}
+            >
+              Sistemas
+            </button>
+            <button 
+              className={`filter-btn ${activeFilter === 'marketing' ? 'active' : ''}`}
+              onClick={() => setActiveFilter('marketing')}
+            >
+              Marketing
+            </button>
           </div>
           <div className="portfolio-grid">
             {filteredProjects.map((project, index) => (
@@ -106,8 +141,14 @@ const PortfolioPage = () => {
                 </div>
                 <div className="project-details">
                   <h3>{project.title}</h3>
-                  <span className="project-category">{project.category === 'web' ? 'Desarrollo Web' : 
-                    project.category === 'software' ? 'Software' : 'Soporte Técnico'}</span>
+                  <span className="project-category">
+                    {project.category === 'web' ? 'Desarrollo Web' : 
+                     project.category === 'software' ? 'Software' : 
+                     project.category === 'soporte' ? 'Soporte Técnico' :
+                     project.category === 'consultoria' ? 'Consultoría IT' :
+                     project.category === 'sistemas' ? 'Sistemas Existentes' :
+                     'Marketing Digital'}
+                  </span>
                   <p>{project.description}</p>
                   <div className="project-tech">
                     {project.technologies.map((tech, i) => (
@@ -164,4 +205,4 @@ const PortfolioPage = () => {
   );
 };
 
-export default PortfolioPage; 
+export default PortfolioPage;
