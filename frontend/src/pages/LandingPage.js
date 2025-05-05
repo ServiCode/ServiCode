@@ -279,7 +279,7 @@ const LandingPage = () => {
                 <li>Landing pages</li>
                 <li>Blogs y portales</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
             
             <div className="service-box">
@@ -292,7 +292,7 @@ const LandingPage = () => {
                 <li>Aplicaciones móviles</li>
                 <li>Integración de sistemas</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
             
             <div className="service-box">
@@ -305,7 +305,7 @@ const LandingPage = () => {
                 <li>Optimización de rendimiento</li>
                 <li>Respaldo de datos</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
             
             <div className="service-box">
@@ -318,7 +318,7 @@ const LandingPage = () => {
                 <li>Seguridad informática</li>
                 <li>Análisis de datos</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
 
             <div className="service-box">
@@ -331,7 +331,7 @@ const LandingPage = () => {
                 <li>Migración de plataformas</li>
                 <li>Optimización de código</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
 
             <div className="service-box">
@@ -344,7 +344,7 @@ const LandingPage = () => {
                 <li>Email marketing</li>
                 <li>Analítica web</li>
               </ul>
-              <a href="/servicios" className="service-link">Más información →</a>
+              <Link to="/servicios" className="service-link">Más información →</Link>
             </div>
           </div>
         </section>
@@ -411,10 +411,10 @@ const LandingPage = () => {
           <div className="banner-content">
             <h2>¿Listo para transformar tu negocio?</h2>
             <p>Permítenos acompañarte en el camino hacia la innovación digital</p>
-            <a href="/contacto" className="btn-cta">
+            <Link to="/contacto" className="btn-cta">
               <span>Comienza tu Proyecto</span>
               <i className="fas fa-arrow-right"></i>
-            </a>
+            </Link>
           </div>
         </section>
       </div>

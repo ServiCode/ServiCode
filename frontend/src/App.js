@@ -2,8 +2,7 @@ import './App.css';
 import './assets/styles.css';
 import './assets/styles-additional.css';
 import './assets/contacto-styles.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Suspense, lazy } from 'react';
 
@@ -30,12 +29,14 @@ const LoadingFallback = () => (
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/servicios" element={<ServiciosPage />} />
+            <Route path="/servicios/:section" element={<ServiciosPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/portfolio/:category" element={<PortfolioPage />} />
             <Route path="/contacto" element={<ContactoPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

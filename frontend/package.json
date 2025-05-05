@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Proyecto Servicode con React",
   "main": "index.js",
+  "homepage": "https://www.servicode.net",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cp build/index.html build/404.html && cp public/_redirects build/",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && netlify deploy --prod"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
