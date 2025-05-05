@@ -28,7 +28,7 @@ const ServiciosPage = () => {
         
         {/* Sección Servicios Principal */}
         <section className="services-detailed">
-          <div className="service-card">
+          <div id="desarrollo-web" className="service-card">
             <img src={paginaWeb} alt="Diseño y Desarrollo Web" />
             <div className="service-content">
               <h3>Diseño y Desarrollo Web</h3>
@@ -43,7 +43,7 @@ const ServiciosPage = () => {
             </div>
           </div>
           
-          <div className="service-card reverse">
+          <div id="desarrollo-software" className="service-card reverse">
             <img src={software} alt="Desarrollo de Software" />
             <div className="service-content">
               <h3>Desarrollo de Software</h3>
@@ -59,7 +59,7 @@ const ServiciosPage = () => {
             </div>
           </div>
           
-          <div className="service-card">
+          <div id="soporte" className="service-card">
             <img src={soporte} alt="Soporte Técnico" />
             <div className="service-content">
               <h3>Soporte Técnico y Mantenimiento</h3>
@@ -75,7 +75,7 @@ const ServiciosPage = () => {
             </div>
           </div>
 
-          <div className="service-card reverse">
+          <div id="consultoria" className="service-card reverse">
             <img src={consultoria} alt="Consultoría IT" />
             <div className="service-content">
               <h3>Consultoría IT</h3>

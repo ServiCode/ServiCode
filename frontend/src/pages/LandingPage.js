@@ -240,7 +240,7 @@ const LandingPage = () => {
         <WhatsAppButton />
 
         {/* Hero Banner */}
-        <section className="hero-section">
+        <section id="hero" className="hero-section">
           <div className="hero-content">
             <h1>Transformamos Ideas en Soluciones Digitales</h1>
             <p>Desarrollo web, software a medida y soporte técnico para llevar tu negocio al siguiente nivel</p>
@@ -350,7 +350,7 @@ const LandingPage = () => {
         </section>
 
         {/* Sección Proceso de Trabajo */}
-        <section className="process-section">
+        <section id="proceso" className="process-section">
           <h2>Nuestro Proceso</h2>
           <p className="section-subtitle">Metodología clara y eficiente para el éxito de cada proyecto</p>
           
@@ -367,7 +367,7 @@ const LandingPage = () => {
             ))}
           </div>
         </section>
-        <section className="tech-section">
+        <section id="tecnologias" className="tech-section">
           <h2>Tecnologías que Dominamos</h2>
           <p className="section-subtitle">Herramientas y frameworks de última generación para tu proyecto</p>
           
