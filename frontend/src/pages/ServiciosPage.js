@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -7,7 +8,10 @@ import { FaCode, FaLaptopCode, FaServer, FaMobileAlt, FaDatabase, FaCogs, FaClou
 // Importar imágenes
 import paginaWeb from '../assets/img/Pagina1.png';
 import software from '../assets/img/Pagina5.png';
-import soporte from '../assets/img/mantenimiento4.jpeg';
+import soporte from '../assets/img/mantenimiento4.png';
+import consultoria from '../assets/img/pagina7.png';
+import sistemasExistentes from '../assets/img/pagina8.png';
+import marketingDigital from '../assets/img/pagina9.png';
 
 const ServiciosPage = () => {
   return (
@@ -72,7 +76,7 @@ const ServiciosPage = () => {
           </div>
 
           <div className="service-card reverse">
-            <img src={software} alt="Consultoría IT" />
+            <img src={consultoria} alt="Consultoría IT" />
             <div className="service-content">
               <h3>Consultoría IT</h3>
               <p>Brindamos asesoría especializada para implementar las mejores soluciones tecnológicas para tu negocio. Nuestro equipo de expertos te ayudará a tomar decisiones informadas y estratégicas en tu transformación digital.</p>
@@ -88,7 +92,7 @@ const ServiciosPage = () => {
           </div>
 
           <div className="service-card">
-            <img src={soporte} alt="Soporte de Sistemas Existentes" />
+            <img src={sistemasExistentes} alt="Soporte de Sistemas Existentes" />
             <div className="service-content">
               <h3>Soporte de Sistemas Existentes</h3>
               <p>Nos especializamos en el mantenimiento y mejora de sistemas y aplicaciones ya desarrolladas, independientemente de su origen. Optimizamos y actualizamos tus soluciones existentes para mantenerlas funcionando de manera eficiente.</p>
@@ -104,7 +108,7 @@ const ServiciosPage = () => {
           </div>
 
           <div className="service-card reverse">
-            <img src={paginaWeb} alt="Marketing Digital" />
+            <img src={marketingDigital} alt="Marketing Digital" />
             <div className="service-content">
               <h3>Marketing Digital</h3>
               <p>Potenciamos tu presencia online con estrategias de marketing digital efectivas. Ayudamos a tu negocio a alcanzar nuevos clientes y aumentar su visibilidad en el mundo digital.</p>
@@ -151,7 +155,7 @@ const ServiciosPage = () => {
         <section className="cta-section">
           <h2>¿Listo para impulsar tu negocio?</h2>
           <p>Contáctanos hoy mismo para una consulta gratuita</p>
-          <a href="/#contacto" className="cta-button">Solicitar Información</a>
+          <Link to="/contacto" className="cta-button">Solicitar Información</Link>
         </section>
       </div>
       <Footer />
