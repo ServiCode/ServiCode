@@ -10,7 +10,10 @@ import {
   FaInstagram, 
   FaTwitter, 
   FaLinkedinIn, 
-  FaTimes 
+  FaTimes,
+  FaWhatsapp,
+  FaPhone,
+  FaPaperPlane
 } from 'react-icons/fa';
 
 const ContactoPage = () => {
@@ -19,6 +22,18 @@ const ContactoPage = () => {
   const togglePrivacyPolicy = (e) => {
     e.preventDefault();
     setShowPrivacyPolicy(!showPrivacyPolicy);
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:info@servicode.net';
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/573204340912', '_blank');
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+573204340912';
   };
 
   return (
@@ -96,6 +111,56 @@ const ContactoPage = () => {
         
         <section className="contact-main-section">
           <div className="contact-grid">
+            <div className="quick-actions-container">
+              <div className="quick-actions-card">
+                <h2>Contacto Directo</h2>
+                <p>Elige la forma más conveniente para comunicarte con nosotros</p>
+                
+                <div className="quick-actions">
+                  <button onClick={handleEmailClick} className="action-button email">
+                    <FaPaperPlane className="action-icon" />
+                    <span>Enviar Email</span>
+                  </button>
+                  
+                  <button onClick={handleWhatsAppClick} className="action-button whatsapp">
+                    <FaWhatsapp className="action-icon" />
+                    <span>Chatear por WhatsApp</span>
+                  </button>
+                  
+                  <button onClick={handlePhoneClick} className="action-button phone">
+                    <FaPhone className="action-icon" />
+                    <span>Llamar Ahora</span>
+                  </button>
+                </div>
+
+                <div className="contact-benefits">
+                  <div className="benefit-item">
+                    <div className="benefit-icon">✓</div>
+                    <div className="benefit-text">
+                      <h3>Respuesta Rápida</h3>
+                      <p>Te respondemos en menos de 24 horas</p>
+                    </div>
+                  </div>
+                  
+                  <div className="benefit-item">
+                    <div className="benefit-icon">✓</div>
+                    <div className="benefit-text">
+                      <h3>Soporte Personalizado</h3>
+                      <p>Atención dedicada a tus necesidades</p>
+                    </div>
+                  </div>
+                  
+                  <div className="benefit-item">
+                    <div className="benefit-icon">✓</div>
+                    <div className="benefit-text">
+                      <h3>Asesoría Gratuita</h3>
+                      <p>Primera consulta sin compromiso</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="contact-info-container">
               <div className="contact-info-card">
                 <h2>Información de contacto</h2>
@@ -108,7 +173,7 @@ const ContactoPage = () => {
                     </div>
                     <div className="contact-text">
                       <h3>Correo electrónico</h3>
-                      <p>servicode.net@gmail.com</p>
+                      <p>info@servicode.net</p>
                     </div>
                   </div>
                   
@@ -118,9 +183,7 @@ const ContactoPage = () => {
                     </div>
                     <div className="contact-text">
                       <h3>Teléfonos</h3>
-                      <p>+57 320 023 8080</p>
-                      <p>+57 322 714 3436</p>
-                      <p>+57 324 423 0348</p>
+                      <p>+57 320 434 0912</p>
                     </div>
                   </div>
                   
